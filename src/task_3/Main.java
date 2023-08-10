@@ -5,7 +5,9 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 class Except extends Exception{
-    public Except(String message) {}
+    public Except(String message) {
+        super(message);
+    }
 
     public void method() {
         System.out.println("Мій Виняток!");
@@ -51,8 +53,7 @@ public class Main {
             if (!found) {
                 throw new Except("Вы ввели неверное название товара!");
             }
-        } catch (Exception e) {
-            System.out.println("Вы ввели неверное название товара!");
+        } catch (Except e) {
             System.out.println(e.getMessage());
             in.next();
         }
